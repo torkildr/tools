@@ -1,8 +1,9 @@
-#!/usr/bin/env python
+#!/opt/bin/python2.4
 
 import time
 
-output_file = "rall.txt"
+output_file = "/opt/disk/transfer.txt"
+raw_file = "/opt/root/stats.txt"
 
 file_headers = ["bytes", "packets", "errs", "drop", "fifo", "frame", "compressed", "multicast"]
 
@@ -65,7 +66,20 @@ def save_info(file, info):
 
     f.close()
 
+def raw_info(file, info):
+    f = open(file, "a")
+
+    up = info["eth0"]["tx"]["bytes"]
+    down = info["eth0"]["rx"]["bytes"]
+
+    date = time.time()
+
+    f.write("%f;%d;%d\n" % (date, up, down))
+
+    f.close()
+
 if __name__ == "__main__":
     info = extract_info("/proc/net/dev")
     save_info(output_file, info)
+    raw_info(raw_file, info)
 
