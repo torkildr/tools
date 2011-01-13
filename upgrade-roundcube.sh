@@ -22,7 +22,8 @@ cd ${dest}
 
 echo
 echo "Running update script"
-./bin/update.sh
+
+${dest}/bin/update.sh
 
 cd - > /dev/null
 
