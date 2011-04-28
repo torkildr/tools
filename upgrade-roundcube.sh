@@ -18,12 +18,12 @@ done
 echo "${base}/ -> ${dest}/"
 find ${base} -maxdepth 1 -type f -exec cp {} ${dest}/ \;
 
-cd ${dest}
+cd ${dest}/bin
 
 echo
 echo "Running update script"
 
-${dest}/bin/update.sh
+./update.sh
 
 cd - > /dev/null
 
