@@ -2,8 +2,8 @@
 
 import time
 
-output_file = "/opt/disk/transfer.txt"
-raw_file = "/opt/root/stats.txt"
+output_file = "transfer.txt"
+raw_file = "stats.txt"
 
 file_headers = ["bytes", "packets", "errs", "drop", "fifo", "frame", "compressed", "multicast"]
 
